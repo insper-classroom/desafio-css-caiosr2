@@ -1,80 +1,140 @@
-/*
-Algumas informações úteis e dicas:
-  - Fontes disponíveis:
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-  - Cores:
-    Tons de amarelo:
-      #e4fc2b
-      #e0d426
-      #f7d736
-      #e0af26
-      #fcb02b
-    Tons de cinza:
-      #2c2c2c
-      #4c4c4c
-    Cores dos cards:
-      #ead3a7
-      #9de0f5
-      #ef89ba
-      #fae890
-      #abe9c1
-  - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
- */
-
-html,
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  background: #f2f2f2;
 }
 
-/* Você pode usar o CSS comentado abaixo, se ajudar */
-/* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
-/* .btn {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
+.appbar {
+  background: #f7d736;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 
-  overflow: hidden;
 
-  border-width: 0;
+.logo {
+  height: 45px;
+  margin-right: 12px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #2c2c2c;
+}
+
+.container {
+  padding: 40px;
+  margin: 0 auto;
+}
+
+
+.form-card {
+  background: #ffffff;
+  width: 560px;
+  margin: 0 auto 48px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(34,34,34,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.form-card-title,
+.autoresize {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
   outline: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-
-  background-color: #f7d736;
-
-  transition: background-color 0.3s;
+  background: #fafafa;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.03);
 }
 
-.btn > * {
-  position: relative;
+
+.autoresize {
+  padding: 8px;
+  margin-bottom: 8px;
+  resize: none;
+  min-height: 40px;
 }
 
-.btn:before {
-  content: "";
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  display: block;
-  width: 0;
-  padding-top: 0;
-
-  border-radius: 100%;
-
-  background-color: rgba(236, 240, 241, 0.3);
-
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.btn {
+  height: 44px;
+  border: none;
+  background: #f7d736;
+  color: rgba(0,0,0,0.85);
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn:active:before {
-  width: 120%;
-  padding-top: 120%;
+.card-container {
+  width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  column-gap: 40px;
+  row-gap: 60px;
+}
 
-  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
-} */
+.card {
+  width: 200px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+  transform-origin: center;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+  z-index: 5;
+}
+
+.card-title {
+  font-family: "Permanent Marker", cursive;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.card-color-1 { background: #fae890; }
+.card-color-2 { background: #ef89ba; }
+.card-color-3 { background: #9de0f5; }
+.card-color-4 { background: #abe9c1; }
+.card-color-5 { background: #ead3a7; }
+
+.card-rotation-1  { transform: rotate(-10deg) translateY(6px); }
+.card-rotation-2  { transform: rotate(-8deg) translateY(8px); }
+.card-rotation-3  { transform: rotate(-5deg) translateY(4px); }
+.card-rotation-4  { transform: rotate(-2deg) translateY(6px); }
+.card-rotation-5  { transform: rotate(0deg) translateY(2px); }
+.card-rotation-6  { transform: rotate(2deg) translateY(4px); }
+.card-rotation-7  { transform: rotate(4deg) translateY(0px); }
+.card-rotation-8  { transform: rotate(6deg) translateY(6px); }
+.card-rotation-9  { transform: rotate(8deg) translateY(2px); }
+.card-rotation-10 { transform: rotate(10deg) translateY(8px); }
+.card-rotation-11 { transform: rotate(3deg) translateY(10px); }
+
+.card:nth-child(1)  { grid-column: 1; grid-row: 1; }
+.card:nth-child(2)  { grid-column: 2; grid-row: 1; }
+.card:nth-child(3)  { grid-column: 3; grid-row: 1; }
+.card:nth-child(4)  { grid-column: 4; grid-row: 1; }
+.card:nth-child(5)  { grid-column: 5; grid-row: 1; }
+.card:nth-child(6)  { grid-column: 6; grid-row: 1; }
+
+.card:nth-child(7)  { grid-column: 2; grid-row: 2; }
+.card:nth-child(8)  { grid-column: 3; grid-row: 2; }
+.card:nth-child(9)  { grid-column: 4; grid-row: 2; }
+.card:nth-child(10) { grid-column: 5; grid-row: 2; }
